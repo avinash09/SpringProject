@@ -23,7 +23,7 @@ public class HelloController {
 
 		ModelAndView model = new ModelAndView();
 		model.setViewName("hello");
-		model.addObject("msg", name);
+		model.addObject("msg", "Welcom in spring MVC :: "+name);
 
 		return model;
 

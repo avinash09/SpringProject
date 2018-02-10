@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:26:05 +0530] "GET /spring3/hello/avinash HTTP/1.1" 404 949 http-bio-8080-exec-1 86
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:26:20 +0530] "GET /hello/avinash HTTP/1.1" 200 1597 http-bio-8080-exec-7 1597
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:26:20 +0530] "GET /resources/core/css/bootstrap.min.js;jsessionid=CCA62A78A9415CC09DACFA85BD138C11 HTTP/1.1" 404 949 http-bio-8080-exec-10 5
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:26:20 +0530] "GET /resources/core/css/hello.js;jsessionid=CCA62A78A9415CC09DACFA85BD138C11 HTTP/1.1" 404 949 http-bio-8080-exec-9 5
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:26:20 +0530] "GET /resources/core/css/hello.css;jsessionid=CCA62A78A9415CC09DACFA85BD138C11 HTTP/1.1" 200 - http-bio-8080-exec-8 9
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:26:20 +0530] "GET /resources/core/css/bootstrap.min.css;jsessionid=CCA62A78A9415CC09DACFA85BD138C11 HTTP/1.1" 200 117305 http-bio-8080-exec-7 11
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:26:20 +0530] "GET /resources/core/css/bootstrap.min.js;jsessionid=CCA62A78A9415CC09DACFA85BD138C11 HTTP/1.1" 404 949 http-bio-8080-exec-6 2
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:27:00 +0530] "GET /hello/avinash HTTP/1.1" 200 1421 http-bio-8080-exec-6 8
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:27:00 +0530] "GET /resources/core/css/bootstrap.min.js HTTP/1.1" 404 949 http-bio-8080-exec-9 3
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:27:00 +0530] "GET /resources/core/css/hello.js HTTP/1.1" 404 949 http-bio-8080-exec-10 4
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:27:00 +0530] "GET /resources/core/css/hello.css HTTP/1.1" 200 - http-bio-8080-exec-8 5
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:27:00 +0530] "GET /resources/core/css/bootstrap.min.css HTTP/1.1" 200 117305 http-bio-8080-exec-6 6
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:27:00 +0530] "GET /resources/core/css/bootstrap.min.js HTTP/1.1" 404 949 http-bio-8080-exec-6 2
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:27:21 +0530] "GET /hello/tomacat7 HTTP/1.1" 200 1422 http-bio-8080-exec-6 4
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:27:21 +0530] "GET /resources/core/css/hello.js HTTP/1.1" 404 949 http-bio-8080-exec-6 2
+0:0:0:0:0:0:0:1 - - [04/Feb/2018:18:27:21 +0530] "GET /resources/core/css/bootstrap.min.js HTTP/1.1" 404 949 http-bio-8080-exec-8 1

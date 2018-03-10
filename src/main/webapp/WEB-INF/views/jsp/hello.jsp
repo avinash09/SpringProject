@@ -10,7 +10,8 @@
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
 </head>
- 
+ <script type="text/javascript" src="/resources/core/js/angular.min.js"></script>
+ <script type="text/javascript" src="/resources/core/js/hello.js"></script>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
 	<div class="navbar-header">
@@ -35,6 +36,15 @@
 		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 	</p>
 	</div>
+</div>
+<div ng-app="myApp" ng-controller="employeecontroller">
+ 
+<p>Input something in the input box:</p>
+<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
+<p>Age : <input type="text" ng-model="age" placeholder="Enter age here"></p>
+<p><input type="button" ng-click="Submit()" value="submit"></p>
+
+
 </div>
  
 <div class="container">

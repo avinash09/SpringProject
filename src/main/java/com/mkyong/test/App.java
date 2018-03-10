@@ -3,10 +3,12 @@ package com.mkyong.test;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.json.JSONArray;
 
 import com.mkyong.persistence.HibernateUtil;
 import com.mkyong.web.datalayer.Employee;
@@ -14,8 +16,12 @@ import com.mkyong.web.datalayer.Employee;
 public class App {
 	
 	public static void main(String[] args) {
+		List list = getEmployeeAll();
+		JSONArray jsonArray = new JSONArray(list);
+		System.out.println(jsonArray.toString());
 		
-		Employee em1 = new Employee("Mary Smith", 25d);
+		
+		/*Employee em1 = new Employee("Mary Smith", 25d);
 		Employee em2 = new Employee("John Aces", 32d);
 		Employee em3 = new Employee("Ian Young", 29d);
 		
@@ -50,7 +56,7 @@ public class App {
 		List<Employee> ems4 = read();
 		for(Employee e: ems4) {
 			System.out.println(e.toString());
-		}
+		}*/
 		System.exit(0);
 	}
 
@@ -115,6 +121,18 @@ public class App {
 		System.out.println("Successfully deleted all employees.");
 
 	}
+	public static List getEmployeeAll() {
+		Session session =  HibernateUtil.getSessionFactory().openSession();
+		@SuppressWarnings("unchecked")
+		
+		Criteria criteria = session.createCriteria(Employee.class);
+		List<Employee> employees = criteria.list();
+		HibernateUtil.shutdown();
+		System.out.println("Found " + employees.size() + " Employees");
+		return employees;
+
+	}
+
 	
 }
 

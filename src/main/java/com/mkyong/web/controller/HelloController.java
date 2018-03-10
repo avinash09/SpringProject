@@ -62,7 +62,6 @@ public class HelloController {
 	}
 	
 	@RequestMapping(value = "/jsonoutput", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	
 	public @ResponseBody String handleAllUserRequest(HttpServletRequest request) throws IOException {
 		
 
@@ -70,6 +69,14 @@ public class HelloController {
 		testservice.saveEmployee(object);
 		object.put("output", "Save Successfully");
 		return object.toString();
+		
+	}
+	
+	@RequestMapping(value = "/employeedata", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody String getEmployeeData() {
+		JSONObject jsonobject = new JSONObject();
+		jsonobject.put("records", testservice.getEmployeeAll());
+		return jsonobject.toString();
 		
 	}
 	public static void sendmail() {

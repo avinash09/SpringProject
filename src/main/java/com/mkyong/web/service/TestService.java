@@ -1,5 +1,8 @@
 package com.mkyong.web.service;
 
+import java.util.List;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,11 @@ public class TestService {
 		employee.setAge(jsonObject.getDouble("age"));
 		employeedao.create(employee);
 		
+	}
+	public JSONArray getEmployeeAll() {
+		List list = employeedao.getEmployeeAll();
+		JSONArray jsonArray = new JSONArray(list);
+		return jsonArray;
 	}
 
 }

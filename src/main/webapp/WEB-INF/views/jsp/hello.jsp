@@ -37,7 +37,8 @@
 	</p>
 	</div>
 </div>
-<div ng-app="myApp" ng-controller="employeecontroller">
+<div ng-app="myApp">
+<div  ng-controller="employeecontroller">
  
 <p>Input something in the input box:</p>
 <p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
@@ -46,7 +47,13 @@
 
 
 </div>
- 
+ <table ng-controller="myCtrl" border="1">
+    <tr ng-repeat="x in records">
+        <td>{{x.name}}</td>
+        <td>{{x.age}}</td>
+    </tr>
+</table>
+</div>
 <div class="container">
  
   <div class="row">

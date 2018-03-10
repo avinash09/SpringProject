@@ -1,8 +1,7 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', []); 
 
-app.controller('employeecontroller', function($scope,$http) {
+var employeecreate = function($scope,$http) {
     $scope.Submit =function(){
-    	
     	var data = {name: $scope.name,age: $scope.age};
     	$http({
             method : "POST",
@@ -15,4 +14,19 @@ app.controller('employeecontroller', function($scope,$http) {
             $scope.myWelcome = response.statusText;
         });
     }
-});
+}
+var employeealldata = function($scope,$http) {
+	$http({
+        method : "GET",
+        url : "http://localhost:8080/employeedata"
+    }).then(function mySuccess(response) {
+    	 $scope.records = response.data.records;
+        
+    }, function myError(response) {
+        $scope.myWelcome = response.statusText;
+    });
+   
+}
+app.controller('employeecontroller',employeecreate);
+app.controller("myCtrl", employeealldata);
+

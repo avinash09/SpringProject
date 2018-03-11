@@ -38,21 +38,43 @@
 	</div>
 </div>
 <div ng-app="myApp">
-<div  ng-controller="employeecontroller">
- 
-<p>Input something in the input box:</p>
-<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
-<p>Age : <input type="text" ng-model="age" placeholder="Enter age here"></p>
-<p><input type="button" ng-click="Submit()" value="submit"></p>
+<div  ng-controller="employeecontroller" class="form-horizontal" >
+ <div class="col-lg-12 col-sm-12 col-xs-12 alert alert-success" ng-show="successMessagebool ">
+        <strong>{{successMessage }}</strong>
+</div>
 
+<div class="form-group">
+    <label class="control-label col-sm-2" for="name">Name :</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" ng-model="name" placeholder="Enter Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="age">Age : </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="age" ng-model="age" placeholder="Enter Age">
+    </div>
+  </div>
+<div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="button" class="btn btn-primary" ng-click="Submit()">Submit</button>
+    </div>
 
 </div>
- <table ng-controller="myCtrl" border="1">
-    <tr ng-repeat="x in records">
-        <td>{{x.name}}</td>
-        <td>{{x.age}}</td>
-    </tr>
-</table>
+	<table ng-controller="myCtrl" class="table table-striped table-bordered table-hover table-responsive table-sm">
+		<thead class="thead-inverse">
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+			</tr>
+		</thead> 
+		<tbody>
+			<tr ng-repeat="x in records">
+				<td>{{x.name}}</td>
+				<td>{{x.age}}</td>
+			</tr>
+			</tbody>
+	</table>
 </div>
 <div class="container">
  

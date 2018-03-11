@@ -1,6 +1,8 @@
 var app = angular.module('myApp', []); 
 
 var employeecreate = function($scope,$http) {
+	$scope.successMessage = "Form submitted successfully";
+    $scope.successMessagebool = false;
     $scope.Submit =function(){
     	var data = {name: $scope.name,age: $scope.age};
     	$http({
@@ -9,7 +11,7 @@ var employeecreate = function($scope,$http) {
             data:JSON.stringify(data)
         }).then(function mySuccess(response) {
             $scope.myWelcome = response.data;
-            alert($scope.myWelcome.output);
+            $scope.successMessagebool = true;
         }, function myError(response) {
             $scope.myWelcome = response.statusText;
         });

@@ -42,6 +42,9 @@
  <div class="col-lg-12 col-sm-12 col-xs-12 alert alert-success" ng-show="successMessagebool ">
         <strong>{{successMessage }}</strong>
 </div>
+<div class="col-lg-12 col-sm-12 col-xs-12 alert alert-danger" ng-show="errorMessagebool ">
+        <strong>{{errorMessage }}</strong>
+</div>
 
 <div class="form-group">
     <label class="control-label col-sm-2" for="name">Name :</label>

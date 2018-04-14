@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page session="false"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +38,11 @@
 	</p>
 	</div>
 </div>
+
+
+	<h1>Title : ${title}</h1>	
+	<h1>Message : ${message}</h1>	
+
 <div ng-app="myApp">
 <div  ng-controller="employeecontroller" class="form-horizontal" >
  <div class="col-lg-12 col-sm-12 col-xs-12 alert alert-success" ng-show="successMessagebool ">

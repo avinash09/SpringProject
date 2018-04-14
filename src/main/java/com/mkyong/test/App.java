@@ -1,6 +1,8 @@
 package com.mkyong.test;
 
 
+import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -8,19 +10,39 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.json.JSONArray;
 
 import com.mkyong.persistence.HibernateUtil;
 import com.mkyong.web.datalayer.Employee;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.MongoClient;
 
 public class App {
 	
-	public static void main(String[] args) {
-		List list = getEmployeeAll();
+	public static void main(String[] args) throws UnknownHostException {
+		/*List list = testCriteria();
 		JSONArray jsonArray = new JSONArray(list);
-		System.out.println(jsonArray.toString());
+		System.out.println(jsonArray.toString());*/
 		
+		// Since 2.10.0, uses MongoClient
+		MongoClient mongo = new MongoClient( "localhost" , 27017 );
 		
+		List<String> dbs = mongo.getDatabaseNames();
+		for(String db : dbs){
+			System.out.println(db);
+		}
+		DB db = mongo.getDB("test");
+		DBCollection mycol = db.getCollection("mycol");
+		DBCursor doccursor = mycol.find();
+		
+		while(doccursor.hasNext()) {
+			System.out.println(doccursor.next());
+		}
+
 		/*Employee em1 = new Employee("Mary Smith", 25d);
 		Employee em2 = new Employee("John Aces", 32d);
 		Employee em3 = new Employee("Ian Young", 29d);
@@ -58,6 +80,23 @@ public class App {
 			System.out.println(e.toString());
 		}*/
 		System.exit(0);
+	}
+	
+	public static List testCriteria() {
+		Session session =  HibernateUtil.getSessionFactory().openSession();
+		@SuppressWarnings("unchecked")
+		
+		Criteria criteria = session.createCriteria(Employee.class);
+		criteria.add(Restrictions.between(Employee.AGE, 20d,30d));
+		criteria.setFirstResult(3);
+		criteria.setMaxResults(6);
+		criteria.addOrder(Order.asc(Employee.NAME));
+		
+		List<Employee> employees = criteria.list();
+		HibernateUtil.shutdown();
+		System.out.println("Found " + employees.size() + " Employees");
+		return employees;
+
 	}
 
 	public static Long create(Employee e) {

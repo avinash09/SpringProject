@@ -7,7 +7,7 @@ var employeecreate = function($scope,$http) {
     	var data = {name: $scope.name,age: $scope.age};
     	$http({
             method : "POST",
-            url : "http://localhost:8080/jsonoutput",
+            url : "http://localhost:9966/jsonoutput",
             data:JSON.stringify(data)
         }).then(function mySuccess(response) {
         	$scope.successMessage = response.data.output;
@@ -23,7 +23,7 @@ var employeecreate = function($scope,$http) {
 var employeealldata = function($scope,$http) {
 	$http({
         method : "GET",
-        url : "http://localhost:8080/employeedata"
+        url : "http://localhost:9966/employeedata"
     }).then(function mySuccess(response) {
     	 $scope.records = response.data.records;
         

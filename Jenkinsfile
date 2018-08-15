@@ -19,5 +19,14 @@ pipeline {
                 }
             }
         }
+        
+         stage ('Server Start Stage') {
+
+            steps {
+                withMaven(maven : 'apache-maven-3.5.2') {
+                    bat 'mvn tomcat7:run'
+                }
+            }
+        }
     }
 }
